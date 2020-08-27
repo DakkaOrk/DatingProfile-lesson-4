@@ -1,0 +1,88 @@
+﻿@model BlindDating.Models.Film
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Film</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Release_year" class="control-label"></label>
+                <input asp-for="Release_year" class="form-control" />
+                <span asp-validation-for="Release_year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Language_id" class="control-label"></label>
+                <input asp-for="Language_id" class="form-control" />
+                <span asp-validation-for="Language_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Original_language_id" class="control-label"></label>
+                <input asp-for="Original_language_id" class="form-control" />
+                <span asp-validation-for="Original_language_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rental_duration" class="control-label"></label>
+                <input asp-for="Rental_duration" class="form-control" />
+                <span asp-validation-for="Rental_duration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rental_rate" class="control-label"></label>
+                <input asp-for="Rental_rate" class="form-control" />
+                <span asp-validation-for="Rental_rate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Length" class="control-label"></label>
+                <input asp-for="Length" class="form-control" />
+                <span asp-validation-for="Length" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Replacement_cost" class="control-label"></label>
+                <input asp-for="Replacement_cost" class="form-control" />
+                <span asp-validation-for="Replacement_cost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rating" class="control-label"></label>
+                <input asp-for="Rating" class="form-control" />
+                <span asp-validation-for="Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Special_features" class="control-label"></label>
+                <input asp-for="Special_features" class="form-control" />
+                <span asp-validation-for="Special_features" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Last_update" class="control-label"></label>
+                <input asp-for="Last_update" class="form-control" />
+                <span asp-validation-for="Last_update" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

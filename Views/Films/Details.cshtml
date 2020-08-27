@@ -1,0 +1,90 @@
+﻿@model BlindDating.Models.Film
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Film</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Release_year)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Release_year)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Language_id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Language_id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Original_language_id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Original_language_id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Rental_duration)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Rental_duration)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Rental_rate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Rental_rate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Length)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Length)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Replacement_cost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Replacement_cost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Rating)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Rating)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Special_features)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Special_features)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Last_update)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Last_update)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Film_id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
