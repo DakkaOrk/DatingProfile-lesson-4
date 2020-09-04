@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using BlindDating.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
+using Microsoft.AspNetCore.Http;
 
 namespace BlindDating.Controllers
 {
@@ -15,6 +18,7 @@ namespace BlindDating.Controllers
     {
         private readonly BlindDatingContext _context;
         private UserManager<IdentityUser> _userManager;
+        private IHostingEnvironment _webroot;
 
         public DatingProfilesController(BlindDatingContext context, UserManager<IdentityUser> userManager)
         {
@@ -164,6 +168,36 @@ namespace BlindDating.Controllers
             }
 
             return View(profile);
+        }
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,Age,Gender,Bio,UserAccountId, DisplayName")] DatingProfile datingProfile,
+            IFormFile FilePhoto)
+        {
+
+            if (FilePhoto.Length > 0)
+            {
+
+                string photoPath = _webroot.WebRootPath + "\\userPhotos\\";
+                var fileName = Path.GetFileName(FilePhoto.FileName);
+
+                using (var stream = System.IO.File.Create(photoPath + fileName))
+                {
+                    await FilePhoto.CopyToAsync(stream);
+                    datingProfile.PhotoPath = fileName;
+                }
+            }
+
+
+
+            if (ModelState.IsValid)
+            {
+                _context.Add(datingProfile);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("ProfileInfo");
+            }
+            return View(datingProfile);
         }
     }
 }
